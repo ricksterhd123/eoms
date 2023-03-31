@@ -13,6 +13,7 @@ pub fn init(path: String) -> Result<Connection, Error> {
 
     let conn = open_result.unwrap();
 
+    // init all entities
     orders::init(&conn)?;
 
     Ok(conn)
