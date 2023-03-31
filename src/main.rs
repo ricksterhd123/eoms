@@ -19,11 +19,11 @@ fn main() -> Result<(), Error> {
         )?
     );
 
-    // let orders = eoms::entity::orders::get(&conn)?;
+    let orders = eoms::entity::orders::get(&conn)?;
 
-    // for order in orders {
-    //     println!("{:?}", order);
-    // }
+    for order in orders {
+        println!("{:?}", order);
+    }
 
     eoms::entity::close(conn)?;
     Ok(())
