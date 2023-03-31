@@ -1,21 +1,10 @@
 use std::io::Error;
-
 use rusqlite::Connection;
-
-const ORDER_TABLE: &str =
-    "CREATE TABLE IF NOT EXISTS orders (id INTEGER PRIMARY KEY AUTOINCREMENT, ref VARCHAR(255))";
 
 #[derive(Debug)]
 pub struct Order {
     pub id: Option<i32>,
     pub reference: String,
-}
-
-pub fn init(conn: &Connection) -> Result<(), Error> {
-    match conn.execute(ORDER_TABLE, ()) {
-        Err(error) => panic!("Failed to initialize order table: {:?}", error),
-        Ok(_) => Ok(()),
-    }
 }
 
 pub fn get(conn: &Connection) -> Result<Vec<Order>, Error> {
@@ -55,7 +44,7 @@ pub fn create(conn: &Connection, order: Order) -> Result<i32, Error> {
         [order.reference.to_string()],
     ) {
         Err(error) => panic!("Failed to create order {:?}: {:?}", order, error),
-        Ok(_) => 0
+        Ok(_) => ()
     };
 
     // Now attempt to get the last row id inserted
