@@ -4,17 +4,17 @@
 ## Rationale
 Dabble in rust
 
-## features
-- manage inventory items and stock
-- create order
-- list orders
-- acknowledge order
-- cancel order
-- list invoices
-- raise invoice from order
-- raise shipping note from order
+## not in scope yet
+- safe concurrency
+- data recovery, backups
+- database migrations (i could probably use diesel.rs)
 
-## todo
-- [ ] create traits for models (CRUD)
-- [ ] logger?
-- [ ] actix-web
+## features
+- [ ] manage inventory items and stock
+- [ ] create order
+- [ ] list orders
+- [ ] acknowledge order
+- [ ] cancel order
+- [ ] list invoices
+- [ ] raise invoice from order
+- [ ] raise shipping note from order
